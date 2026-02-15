@@ -51,16 +51,6 @@ with DAG(
         mode="poke",  # Blocking mode
     )
 
-    file_sensor_dev = GCSObjectExistenceSensor(
-    task_id="check_file_arrival_dev",  # Unique task_id
-    bucket=gcs_bucket_dev,  # us-central1-airflow-dev-535fa553-bucket
-    object="flight-booking-analysis/source-dev/flight_booking.csv",  # exact file path
-    google_cloud_conn_id="google_cloud_default",
-    timeout=300,
-    poke_interval=30,
-    mode="poke",
-)
-
 
     file_sensor_prod = GCSObjectExistenceSensor(
         task_id="check_file_arrival",
