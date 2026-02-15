@@ -42,7 +42,7 @@ with DAG(
 
     # # Task 1: File Sensor for GCS
     file_sensor_dev = GCSObjectExistenceSensor(
-        task_id="check_file_arrival",
+        task_id="check_file_arrival_dev",
         bucket=gcs_bucket_dev,
         object=f"flight-booking-analysis/source-{env_dev}/flight_booking.csv",  # Full file path in GCS
         google_cloud_conn_id="google_cloud_default",  # GCP connection
@@ -53,7 +53,7 @@ with DAG(
 
 
     file_sensor_prod = GCSObjectExistenceSensor(
-        task_id="check_file_arrival",
+        task_id="check_file_arrival_prod",
         bucket=gcs_bucket_prod,
         object=f"flight-booking-analysis/source-{env_prod}/flight_booking.csv",  # Full file path in GCS
         google_cloud_conn_id="google_cloud_default",  # GCP connection
