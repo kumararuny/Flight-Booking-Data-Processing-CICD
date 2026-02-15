@@ -28,7 +28,8 @@ with DAG(
     gcs_bucket_dev = Variable.get("gcs_bucket", default_var="us-central1-airflow-dev-535fa553-bucket")
     gcs_bucket_prod = Variable.get("gcs_bucket_prod", default_var="us-central1-airflow-prod-2746756d-bucket")
     bq_project = Variable.get("bq_project", default_var="project-b33ba036-13df-409f-b4f")
-    bq_dataset = Variable.get("bq_dataset", default_var=f"flight_data_{env_dev}")
+    bq_dataset_dev = Variable.get("bq_dataset", default_var=f"flight_data_{env_dev}")
+    bq_dataset_prod = Variable.get("bq_dataset_prod", default_var=f"flight_data_{env_prod}")
     tables = Variable.get("tables", deserialize_json=True)
 
     # Extract table names from the 'tables' variable
@@ -71,7 +72,7 @@ with DAG(
             "args": [
                 f"--env={env_dev}",
                 f"--bq_project={bq_project}",
-                f"--bq_dataset={bq_dataset}",
+                f"--bq_dataset={bq_dataset_dev}",
                 f"--transformed_table={transformed_table}",
                 f"--route_insights_table={route_insights_table}",
                 f"--origin_insights_table={origin_insights_table}",
@@ -97,7 +98,7 @@ with DAG(
             "args": [
                 f"--env={env_prod}",
                 f"--bq_project={bq_project}",
-                f"--bq_dataset={bq_dataset}",
+                f"--bq_dataset={bq_dataset_prod}",
                 f"--transformed_table={transformed_table}",
                 f"--route_insights_table={route_insights_table}",
                 f"--origin_insights_table={origin_insights_table}",
