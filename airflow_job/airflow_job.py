@@ -122,7 +122,7 @@ with DAG(
     )
 
     pyspark_task_prod = DataprocCreateBatchOperator(
-        task_id="run_spark_job_on_dataproc_serverless_dev",
+        task_id="run_spark_job_on_dataproc_serverless_prod",
         batch=batch_details_prod,
         batch_id=batch_id,
         project_id="project-b33ba036-13df-409f-b4f",
