@@ -1,6 +1,6 @@
 {
     "env": "prod",
-    "gcs_bucket": "us-central1-airflow-prod-2746756d-bucket",
+    "gcs_bucket": "airflow-projects-bucket2",
     "bq_project": "project-b33ba036-13df-409f-b4f",
     "bq_dataset": "flight_data_prod",
     "tables": {

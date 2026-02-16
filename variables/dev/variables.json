@@ -1,6 +1,6 @@
 {
     "env": "dev",
-    "gcs_bucket": "us-central1-airflow-dev-535fa553-bucket",
+    "gcs_bucket": "airflow-projects-bucket2",
     "bq_project": "project-b33ba036-13df-409f-b4f",
     "bq_dataset": "flight_data_dev",
     "tables": {
